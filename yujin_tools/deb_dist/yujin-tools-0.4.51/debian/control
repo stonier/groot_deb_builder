@@ -1,0 +1,15 @@
+Source: yujin-tools
+Maintainer: Daniel Stonier <d.stonier@gmail.com>
+Section: python
+Priority: optional
+Build-Depends: dh-python, python-all (>= 2.6.6-3), debhelper (>= 9)
+Standards-Version: 3.9.6
+X-Python-Version: >= 2.6
+Homepage: http://pypi.python.org/pypi/yujin_tools
+
+Package: python-yujin-tools
+Architecture: all
+Depends: ${misc:Depends}, ${python:Depends}, ${python:Depends}, python-catkin-pkg, python-yaml, python-wstool
+Description: Utilities for yujin's development environment
+ Refer to the documentation at https://github.com/yujinrobot/yujin_tools.
+

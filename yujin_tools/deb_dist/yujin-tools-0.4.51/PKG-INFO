@@ -1,0 +1,14 @@
+Metadata-Version: 1.1
+Name: yujin_tools
+Version: 0.4.51
+Summary: Utilities for yujin's development environment
+Home-page: http://pypi.python.org/pypi/yujin_tools
+Author: Daniel Stonier
+Author-email: d.stonier@gmail.com
+License: BSD
+Download-URL: https://github.com/yujinrobot/yujin_tools.git
+Description: Refer to the documentation at https://github.com/yujinrobot/yujin_tools.
+Keywords: Yujin Robot
+Platform: UNKNOWN
+Classifier: Programming Language :: Python
+Classifier: License :: OSI Approved :: BSD License
