@@ -1,0 +1,6 @@
+#!/bin/bash
+
+PWD="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+source ${PWD}/setup.bash
+
+eclipse -data ~/workspace/eclipse/neon/groot_deb_builder
