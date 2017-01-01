@@ -30,10 +30,11 @@ download: pristine
 
 build: clean
 	@mkdir -p build
-	@tar -xzf ${TARBALL}
+	@tar -xzf ${TARBALL} 
 	@mv ${REPOSITORY_NAME}-${SOURCE_VERSION} build/${PACKAGE_NAME}-${VERSION}
+	@cd build; tar -czf ${PACKAGE_NAME}_${VERSION}.orig.tar.gz ${PACKAGE_NAME}-${VERSION}
 	@cp -r debian build/${PACKAGE_NAME}-${VERSION}
-	cd build/${PACKAGE_NAME}-${VERSION}; dpkg-buildpackage -us -uc -sa
+	@cd build/${PACKAGE_NAME}-${VERSION}; dpkg-buildpackage -us -uc -sa
 
 sign:
 	cd build/${PACKAGE_NAME}-${VERSION}/debian; debuild -S -sa
@@ -45,4 +46,4 @@ release: build sign upload
 
 # this vendor=override is broken...just clears the 'ubuntu1' default
 changelog:
-	dch -i --distribution=xenial --urgency=low --vendor=override
+	dch -i --distribution=xenial --urgency=low
