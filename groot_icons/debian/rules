@@ -10,5 +10,5 @@
 %:
 	dh $@
 
-override_dh_auto_configure:
-	dh_auto_configure -- -DCMAKE_INSTALL_PREFIX=/opt/snorriheim
+#override_dh_auto_configure:
+#	dh_auto_configure -- -DCMAKE_INSTALL_PREFIX=/opt/snorriheim
