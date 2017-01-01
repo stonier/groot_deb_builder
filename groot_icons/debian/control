@@ -1,0 +1,14 @@
+Source: groot-icons
+Priority: optional
+Section: graphics
+Maintainer: Daniel Stonier <d.stonier@gmail.com>
+Build-Depends: debhelper (>=9)
+Standards-Version: 3.9.7
+Vcs-Git: https://github.com/stonier/groot_deb_builder.git
+Vcs-Browser: https://github.com/stonier/groot_deb_builder.git
+
+Package: groot-icons
+Architecture: all
+Priority: optional
+Description: A collection of useful icons
+Depends: ${misc:Depends}
