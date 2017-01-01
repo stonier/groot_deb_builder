@@ -1,0 +1,13 @@
+Source: groot-icons
+Priority: optional
+Section: Multimedia
+Maintainer: Daniel Stonier <d.stonier@gmail.com>
+Standards-Version: 3.9.8
+Vcs-Git: https://github.com/stonier/groot_deb_builder.git
+Vcs-Browser: https://github.com/stonier/groot_deb_builder.git
+
+Package: groot-icons
+Architecture: all
+Priority: optional
+Version: 0.1.0
+Description: A collection of useful icons

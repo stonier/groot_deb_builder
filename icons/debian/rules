@@ -1,0 +1,23 @@
+#!/usr/bin/make -f
+
+INSTALL = install
+INSTALL_FILE    = $(INSTALL) -p    -o root -g root  -m  644
+INSTALL_PROGRAM = $(INSTALL) -p    -o root -g root  -m  755
+INSTALL_SCRIPT  = $(INSTALL) -p    -o root -g root  -m  755
+INSTALL_DIR     = $(INSTALL) -p -d -o root -g root  -m  755
+TARGET_DIR      = /opt/snorriheim/media
+
+clean:
+
+binary-indep:
+	$INSTALL_DIR media ${TARGET_DIR}/media
+
+binary-arch: binary-indep
+
+binary: binary-indep
+
+build:
+
+build-arch:
+
+build-indep:
