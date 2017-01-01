@@ -46,4 +46,4 @@ release: build sign upload
 
 # this vendor=override is broken...just clears the 'ubuntu1' default
 changelog:
-	dch -i --distribution=xenial --urgency=low
+	dch -i --distribution=xenial --urgency=low --increment --vendor=override

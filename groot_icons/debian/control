@@ -2,7 +2,7 @@ Source: groot-icons
 Priority: optional
 Section: graphics
 Maintainer: Daniel Stonier <d.stonier@gmail.com>
-Build-Depends: debhelper (>=9)
+Build-Depends: debhelper (>=9), cmake, build-essential
 Standards-Version: 3.9.7
 Vcs-Git: https://github.com/stonier/groot_deb_builder.git
 Vcs-Browser: https://github.com/stonier/groot_deb_builder.git
