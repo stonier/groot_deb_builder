@@ -1,5 +1,5 @@
 # INSTALL_PREFIX=/opt/snorriheim
-VERSION=0.1.1
+VERSION=0.1.2
 REPOSITORY_NAME=groot_icons
 REPOSITORY_URL=https://github.com/stonier/${REPOSITORY_NAME}
 TARBALL=${REPOSITORY_NAME}-${VERSION}.tar.gz
@@ -30,15 +30,14 @@ download: pristine
 	@tar -xzf ${TARBALL}
 	@mv ${REPOSITORY_NAME}-${VERSION} ${PACKAGE_NAME}-${VERSION}
 	@tar -cvf ${PACKAGE_NAME}_${VERSION}.orig.tar ${PACKAGE_NAME}-${VERSION}
-	@gzip -n ${PACKAGE_NAME}_${VERSION}.orig.tar
+	@gzip -n ${ORIG_TARBALL}
 	@rm ${TARBALL}
 	@rm -rf ${PACKAGE_NAME}-${VERSION}
 
 build: clean
 	@mkdir -p build
-	@tar -xzf ${TARBALL} 
-	@mv ${REPOSITORY_NAME}-${VERSION} build/${PACKAGE_NAME}-${VERSION}
-	@cd build; tar -czf ${PACKAGE_NAME}_${VERSION}.orig.tar.gz ${PACKAGE_NAME}-${VERSION}
+	@tar -xzf ${ORIG_TARBALL} -C build
+	@ln -s ../${ORIG_TARBALL} build/${ORIG_TARBALL}
 	@cp -r debian build/${PACKAGE_NAME}-${VERSION}
 	@cd build/${PACKAGE_NAME}-${VERSION}; dpkg-buildpackage -us -uc -sa
 
