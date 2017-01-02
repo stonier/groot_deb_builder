@@ -30,7 +30,7 @@ download: pristine
 	@tar -xzf ${TARBALL}
 	@mv ${REPOSITORY_NAME}-${VERSION} ${PACKAGE_NAME}-${VERSION}
 	@tar -cvf ${PACKAGE_NAME}_${VERSION}.orig.tar ${PACKAGE_NAME}-${VERSION}
-	@gzip -n ${ORIG_TARBALL}
+	@gzip -n ${PACKAGE_NAME}_${VERSION}.orig.tar
 	@rm ${TARBALL}
 	@rm -rf ${PACKAGE_NAME}-${VERSION}
 
