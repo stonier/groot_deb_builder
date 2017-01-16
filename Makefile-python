@@ -1,0 +1,75 @@
+##############################################################################
+#
+# Helper for building python source debs and uploading them to the ppa
+#
+# Variables:
+#   NAME : name of the pypi package
+#   DISTRO : name of the distro to release into
+#
+##############################################################################
+#
+# uses the local stdeb.cfg
+# py2dsc can also use an additional external stdeb.cfg via --extra-cfg-file
+# py2dsc could alternatively use --suite here instead of stdeb.cfg
+#
+##############################################################################
+
+DASHED_NAME=$(subst _,-,$(NAME))
+
+help:
+	@echo ""
+	@echo "Build a Source Deb"
+	@echo ""
+	@echo "    make download; make build; make upload"
+	@echo ""
+	@echo "  OR simply"
+	@echo ""
+	@echo "    make release"
+	@echo ""
+	@echo "Build a Deb"
+	@echo ""
+	@echo "    make download; make deb"
+	@echo ""
+
+download:
+	@echo ""
+	@echo "******************************************************"
+	@echo "                      Download"
+	@echo "******************************************************"
+	@echo ""
+	pip download --no-deps ${NAME}
+
+clean:
+	rm -rf deb_dist
+
+pristine: clean
+	rm ${NAME}*.tar.gz
+
+build: clean
+	@echo ""
+	@echo "******************************************************"
+	@echo "                    Source Package"
+	@echo "******************************************************"
+	@echo ""
+	py2dsc --suite ${DISTRO} --maintainer "Daniel Stonier" ${NAME}*.tar.gz
+	# py2dsc --extra-cfg-file stdeb.cfg ${NAME}*.tar.gz
+	@echo ""
+	@echo "******************************************************"
+	@echo "                      Signing"
+	@echo "******************************************************"
+	@echo ""
+	cd deb_dist/${DASHED_NAME}*/debian; debuild -S -sa
+	@echo ""
+
+deb: clean
+	@echo ""
+	@echo "******************************************************"
+	@echo "                      Deb"
+	@echo "******************************************************"
+	@echo ""
+	py2dsc-deb --suite ${DISTRO} ${NAME}*.tar.gz
+
+upload:
+	cd deb_dist; dput ppa:d-stonier/snorriheim ${DASHED_NAME}_*_source.changes 
+
+release: download build upload
