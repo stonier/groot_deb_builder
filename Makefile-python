@@ -5,6 +5,7 @@
 # Variables:
 #   NAME : name of the pypi package
 #   DISTRO : name of the distro to release into
+#   BUILD_OPTIONS : optional extra flags, e.g. --extra-cfg-file stdeb.cfg
 #
 ##############################################################################
 #
@@ -31,7 +32,9 @@ help:
 	@echo "    make download; make deb"
 	@echo ""
 
-download:
+pre-download:
+
+download: pre-download
 	@echo ""
 	@echo "******************************************************"
 	@echo "                      Download"
@@ -51,8 +54,7 @@ build: clean
 	@echo "                    Source Package"
 	@echo "******************************************************"
 	@echo ""
-	py2dsc --suite ${DISTRO} --maintainer "Daniel Stonier <d.stonier@gmail.com>" ${NAME}*.tar.gz
-	# py2dsc --extra-cfg-file stdeb.cfg ${NAME}*.tar.gz
+	py2dsc ${BUILD_OPTIONS} --suite ${DISTRO} --maintainer "Daniel Stonier <d.stonier@gmail.com>" ${NAME}*.tar.gz
 	@echo ""
 	@echo "******************************************************"
 	@echo "                      Signing"
