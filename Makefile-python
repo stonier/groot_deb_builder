@@ -51,7 +51,7 @@ build: clean
 	@echo "                    Source Package"
 	@echo "******************************************************"
 	@echo ""
-	py2dsc --suite ${DISTRO} --maintainer "Daniel Stonier" ${NAME}*.tar.gz
+	py2dsc --suite ${DISTRO} --maintainer "Daniel Stonier <d.stonier@gmail.com>" ${NAME}*.tar.gz
 	# py2dsc --extra-cfg-file stdeb.cfg ${NAME}*.tar.gz
 	@echo ""
 	@echo "******************************************************"
