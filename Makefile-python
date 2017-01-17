@@ -5,7 +5,6 @@
 # Variables:
 #   NAME : name of the pypi package
 #   DISTRO : name of the distro to release into
-#   BUILD_OPTIONS : optional extra flags, e.g. --extra-cfg-file stdeb.cfg
 #
 ##############################################################################
 #
@@ -54,7 +53,7 @@ build: clean
 	@echo "                    Source Package"
 	@echo "******************************************************"
 	@echo ""
-	py2dsc ${BUILD_OPTIONS} --suite ${DISTRO} --maintainer "Daniel Stonier <d.stonier@gmail.com>" ${NAME}*.tar.gz
+	py2dsc --extra-cfg-file stdeb.cfg --suite ${DISTRO} --maintainer "Daniel Stonier <d.stonier@gmail.com>" ${NAME}*.tar.gz
 	@echo ""
 	@echo "******************************************************"
 	@echo "                      Signing"
@@ -69,7 +68,7 @@ deb: clean
 	@echo "                      Deb"
 	@echo "******************************************************"
 	@echo ""
-	py2dsc-deb --suite ${DISTRO} ${NAME}*.tar.gz
+	py2dsc-deb --extra-cfg-file stdeb.cfg --suite ${DISTRO} ${NAME}*.tar.gz
 
 upload:
 	cd deb_dist; dput ppa:d-stonier/snorriheim ${DASHED_NAME}_*_source.changes 
