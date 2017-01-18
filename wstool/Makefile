@@ -1,5 +1,5 @@
 
 NAME=$(shell basename ${CURDIR})
-DISTRO=xenial
+SKIP_TESTS=1
 
 include ../Makefile-python

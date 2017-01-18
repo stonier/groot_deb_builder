@@ -1,11 +1,10 @@
 
 # CKX Tools
 
-## ROS Dependencies
+## Preparation
 
-Dropped the ros repo dependnecies in the stdeb.cfg so it can build on the ppa. The
-alternative is to build up all of the underlying dependencies (rospkg, vcstools,
-wstool, osrf_common etc) and that's a pain. Lots of breakages everywhere.
+* Drop the tests which are broken since not everything is carefully installed into
+  the source package.
 
 ## Tests
 

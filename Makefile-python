@@ -4,7 +4,8 @@
 #
 # Variables:
 #   NAME : name of the pypi package
-#   DISTRO : name of the distro to release into
+#   DISTRO (optional) : name of the distro to release into
+#   SKIP_TESTS (optional) : set to 1 if you want to skip tests
 #
 ##############################################################################
 #
@@ -15,6 +16,8 @@
 ##############################################################################
 
 DASHED_NAME=$(subst _,-,$(NAME))
+SKIP_TESTS?=0
+DISTRO?=xenial
 
 help:
 	@echo ""
@@ -54,6 +57,10 @@ build: clean
 	@echo "******************************************************"
 	@echo ""
 	py2dsc --extra-cfg-file stdeb.cfg --suite ${DISTRO} --maintainer "Daniel Stonier <d.stonier@gmail.com>" ${NAME}*.tar.gz
+	@if [ "$(SKIP_TESTS)" = "1" ]; then \
+            echo "groot: skipping tests"; \
+	    cd deb_dist/${DASHED-NAME}*; echo "override_dh_auto_test:\n\t\n" >> debian/rules; \
+	fi;
 	@echo ""
 	@echo "******************************************************"
 	@echo "                      Signing"
@@ -71,6 +78,6 @@ deb: clean
 	py2dsc-deb --extra-cfg-file stdeb.cfg --suite ${DISTRO} ${NAME}*.tar.gz
 
 upload:
-	cd deb_dist; dput ppa:d-stonier/snorriheim ${DASHED_NAME}_*_source.changes 
+	cd deb_dist; dput ppa:d-stonier/snorriheim ${DASHED_NAME}_*_source.changes
 
 release: download build upload
