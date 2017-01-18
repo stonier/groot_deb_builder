@@ -1,5 +1,5 @@
 # INSTALL_PREFIX=/opt/snorriheim
-VERSION=0.1.2
+VERSION=0.1.0
 REPOSITORY_NAME=$(shell basename ${CURDIR})
 REPOSITORY_URL=https://github.com/stonier/${REPOSITORY_NAME}
 TARBALL=${REPOSITORY_NAME}-${VERSION}.tar.gz
