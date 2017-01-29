@@ -1,3 +1,9 @@
+groot-icons (0.2.0-1) xenial; urgency=low
+
+  * first release of avatars added
+
+ -- Daniel Stonier <d.stonier@gmail.com>  Sun, 29 Jan 2017 13:10:05 +0900
+
 groot-icons (0.1.2-1) xenial; urgency=low
 
   * shifted installation to share/groot_icons
@@ -12,13 +18,13 @@ groot-icons (0.1.1-1) xenial; urgency=low
 
 groot-icons (0.1.0-2) xenial; urgency=low
 
-  * build-depend on cmake, build essential 
+  * build-depend on cmake, build essential
 
  -- Daniel Stonier <d.stonier@gmail.com>  Sun, 01 Jan 2017 23:50:00 +0900
 
 groot-icons (0.1.0-1) xenial; urgency=low
 
-  * bugfix section Graphics->graphics 
+  * bugfix section Graphics->graphics
 
  -- Daniel Stonier <d.stonier@gmail.com>  Sun, 01 Jan 2017 23:39:49 +0900
 

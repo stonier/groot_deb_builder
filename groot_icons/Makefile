@@ -1,5 +1,5 @@
 # INSTALL_PREFIX=/opt/snorriheim
-VERSION=0.1.2
+VERSION=0.2.0
 REPOSITORY_NAME=$(shell basename ${CURDIR})
 REPOSITORY_URL=https://github.com/stonier/${REPOSITORY_NAME}
 TARBALL=${REPOSITORY_NAME}-${VERSION}.tar.gz
@@ -9,19 +9,21 @@ PACKAGE_NAME=$(subst _,-,${REPOSITORY_NAME})
 help:
 	@echo "Targets"
 	@echo ""
-	@echo "  pristine: cleans all temporaries and source tarballs"
-	@echo "  clean   : cleans only temporaries"
-	@echo "  download: downloads/builds an orig.tar.gz source tarball"
-	@echo "  build   : generates an unsigned source pkg & deb in ./build [req: download]"
-	@echo "  sign    : signs a source package                            [req: build]"
-	@echo "  upload  : sends it over to the ppa                          [req: sign]"
-	@echo "  release : build, sign, upload                               [req: download]"
+	@echo "  pristine : cleans all temporaries and source tarballs"
+	@echo "  clean    : cleans only temporaries"
+	@echo "  download : downloads/builds an orig.tar.gz source tarball"
+	@echo "  changelog: edit the changelog"
+	@echo "  build    : generates an unsigned source pkg & deb in ./build [req: download]"
+	@echo "  sign     : signs a source package                            [req: build]"
+	@echo "  upload   : sends it over to the ppa                          [req: sign]"
+	@echo "  release  : build, sign, upload                               [req: download]"
 
 clean:
 	rm -rf build
 
 pristine: clean
 	rm -f ${TARBALL}
+	rm -f ${ORIG_TARBALL}
 
 # make sure to use -n with gzip so filename and timestamp is not archived
 # otherwise ppa will complain it's getting a different original 

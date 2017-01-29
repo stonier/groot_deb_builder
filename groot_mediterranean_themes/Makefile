@@ -11,6 +11,7 @@ help:
 	@echo ""
 	@echo "  pristine: cleans all temporaries and source tarballs"
 	@echo "  clean   : cleans only temporaries"
+	@echo "  changelog: edit the changelog"
 	@echo "  download: downloads/builds an orig.tar.gz source tarball"
 	@echo "  build   : generates an unsigned source pkg & deb in ./build [req: download]"
 	@echo "  sign    : signs a source package                            [req: build]"
@@ -22,6 +23,7 @@ clean:
 
 pristine: clean
 	rm -f ${TARBALL}
+	rm -f ${ORIG_TARBALL}
 
 # make sure to use -n with gzip so filename and timestamp is not archived
 # otherwise ppa will complain it's getting a different original 
