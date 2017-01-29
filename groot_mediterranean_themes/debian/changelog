@@ -1,3 +1,9 @@
+groot-mediterranean-themes (0.1.0-1) xenial; urgency=low
+
+  * Correct the debian package description (was copied from groot_icons)
+
+ -- Daniel Stonier <d.stonier@gmail.com>  Sat, 28 Jan 2017 01:25:23 +0900
+
 groot-mediterranean-themes (0.1.0) xenial; urgency=low
 
   * Mediterranean themes imported from old noobslab debs

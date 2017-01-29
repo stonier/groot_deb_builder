@@ -11,6 +11,7 @@ Package: groot-mediterranean-themes
 Architecture: all
 Priority: optional
 Depends: ${misc:Depends}
-Description: Collection of useful icons
- These are not tied to any system, just available for general
- purpose use
+Description: Collection of useful gtk2/gtk3 themes.
+ These themes come from the noobslab ppa and are repackaged
+ for xenial. In particular MediterraneanDarkest is a good
+ dark theme for eclipse.
