@@ -1,0 +1,14 @@
+Source: groot-wallpapers
+Priority: optional
+Section: kde
+Maintainer: Daniel Stonier <d.stonier@gmail.com>
+Build-Depends: debhelper (>=9), cmake
+Standards-Version: 3.9.7
+Vcs-Git: https://github.com/stonier/groot-wallpapers.git
+Vcs-Browser: https://github.com/stonier/groot-wallpapers.git
+
+Package: groot-wallpapers
+Architecture: all
+Depends: ${misc:Depends}
+Description: Wallpapers
+ Some oft-used wallpapers of mine
