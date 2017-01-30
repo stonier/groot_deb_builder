@@ -34,18 +34,23 @@ help:
 	@echo "  release  : build, sign, upload                               [req: download]"
 
 clean:
-	rm -rf build
+	@echo "Cleaning temporary build directories"
+	@rm -rf build
 
 pristine: clean
-	rm -f ${TARBALL}
-	rm -f ${ORIG_TARBALL}
+	@echo "Cleaning downloaded tarballs and associated directories"
+	@rm -f ${TARBALL}
+	@rm -f ${ORIG_TARBALL}
+	@rm -rf ${PACKAGE_NAME}-${VERSION}
 
 # make sure to use -n with gzip so filename and timestamp is not archived
 # otherwise ppa will complain it's getting a different original 
 download: pristine
 	wget -O ${TARBALL} ${REPOSITORY_URL}/archive/${VERSION}.tar.gz
 	@tar -xzf ${TARBALL}
-	@mv ${REPOSITORY_NAME}-${VERSION} ${PACKAGE_NAME}-${VERSION}
+	@if [ "${REPOSITORY_NAME}-${VERSION}" != "${PACKAGE_NAME}-${VERSION}" ]; then \
+	  @mv ${REPOSITORY_NAME}-${VERSION} ${PACKAGE_NAME}-${VERSION}; \
+        fi
 	@tar -cvf ${PACKAGE_NAME}_${VERSION}.orig.tar ${PACKAGE_NAME}-${VERSION}
 	@gzip -n ${PACKAGE_NAME}_${VERSION}.orig.tar
 	@rm ${TARBALL}

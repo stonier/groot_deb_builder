@@ -1,3 +1,4 @@
+*/build
 *.gz
 deb_dist
 */deb_dist
