@@ -1,3 +1,9 @@
+groot-wallpapers (0.1.1-1) xenial; urgency=low
+
+  * fix naming to work with ubuntu wallpaper mechanisms
+
+ -- Daniel Stonier <d.stonier@gmail.com>  Mon, 30 Jan 2017 11:47:32 +0900
+
 groot-wallpapers (0.1.0-1) xenial; urgency=low
 
   * eye_of_the_dragon.jpg added
