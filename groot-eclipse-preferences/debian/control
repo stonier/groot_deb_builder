@@ -1,0 +1,14 @@
+Source: groot-eclipse-preferences
+Priority: optional
+Section: devel
+Maintainer: Daniel Stonier <d.stonier@gmail.com>
+Build-Depends: debhelper (>=9), cmake
+Standards-Version: 3.9.7
+Vcs-Git: https://github.com/stonier/groot-eclipse-preferences.git
+Vcs-Browser: https://github.com/stonier/groot-eclipse-preferences.git
+
+Package: groot-eclipse-preferences
+Architecture: all
+Depends: ${misc:Depends}
+Description: Eclipse preferences for import.
+ Various preference profiles for eclipse to configure new workspaces with.
