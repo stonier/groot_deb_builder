@@ -4,12 +4,11 @@ Section: graphics
 Maintainer: Daniel Stonier <d.stonier@gmail.com>
 Build-Depends: debhelper (>=9), cmake
 Standards-Version: 3.9.7
-Vcs-Git: https://github.com/stonier/groot_deb_builder.git
-Vcs-Browser: https://github.com/stonier/groot_deb_builder.git
+Vcs-Git: https://github.com/stonier/groot_icons.git
+Vcs-Browser: https://github.com/stonier/groot_icons.git
 
 Package: groot-icons
 Architecture: all
-Priority: optional
 Depends: ${misc:Depends}
 Description: Collection of useful icons
  These are not tied to any system, just available for general
