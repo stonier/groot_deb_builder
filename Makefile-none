@@ -1,25 +1,28 @@
 ##############################################################################
 #
-# Helper for building a cmake installable package via the dpkg command line
-# tools and uploading them to the ppa
+# Helper for building a package with just files (i.e. no build rules)
 #
 # Variables:
-#   VERSION : version of the package to build
-#   REPOSITORY_URL (optional) : if not specified, built from stonier@github and the name
+#   NAME        : (optional) name to be released, e.g. groot-eclipse-neon-amd64
+#   VERSION     : major.minor.patch of the release
+#   TARBALL_URL : download url to the tarball (file:// or http://)
 #
 ##############################################################################
 #
-# uses the local stdeb.cfg
-# py2dsc can also use an additional external stdeb.cfg via --extra-cfg-file
-# py2dsc could alternatively use --suite here instead of stdeb.cfg
+# https://www.debian.org/doc/manuals/debmake-doc/ch08.en.html#nomakefile
 #
 ##############################################################################
 
-REPOSITORY_NAME=$(shell basename ${CURDIR})
-REPOSITORY_URL?=https://github.com/stonier/${REPOSITORY_NAME}
-TARBALL=${REPOSITORY_NAME}-${VERSION}.tar.gz
+NAME?=$(shell basename ${CURDIR})
+PACKAGE_NAME=$(subst _,-,${NAME})
+TARBALL_URL?=https://you.must.define/TARBALL_URL.tar.gz
+TARBALL=$(shell basename ${TARBALL_URL})
 ORIG_TARBALL=${PACKAGE_NAME}_${VERSION}.orig.tar.gz
-PACKAGE_NAME=$(subst _,-,${REPOSITORY_NAME})
+
+
+dude:
+	@echo "Tarball URL: ${TARBALL_URL}"
+	@echo "Tarball: ${TARBALL}"
 
 help:
 	@echo "Targets"
@@ -46,11 +49,12 @@ pristine: clean
 # make sure to use -n with gzip so filename and timestamp is not archived
 # otherwise ppa will complain it's getting a different original 
 download: pristine
-	wget -O ${TARBALL} ${REPOSITORY_URL}/archive/${VERSION}.tar.gz
+	curl -o ${TARBALL} ${TARBALL_URL}
 	@tar -xzf ${TARBALL}
-	@if [ "${REPOSITORY_NAME}-${VERSION}" != "${PACKAGE_NAME}-${VERSION}" ]; then \
-	  mv ${REPOSITORY_NAME}-${VERSION} ${PACKAGE_NAME}-${VERSION}; \
-        fi
+	# 1) Assume the tarball creates the ${PACKAGE_NAME}-${VERSION} folder
+	# 2) carefully gzip it up WITHOUT the time stamp (gzip -n)
+	# so launchpad doesn't have a mickey finn when you try to upload a
+	# different orig tarball when building a debian revision > 1 deb
 	@tar -cvf ${PACKAGE_NAME}_${VERSION}.orig.tar ${PACKAGE_NAME}-${VERSION}
 	@gzip -n ${PACKAGE_NAME}_${VERSION}.orig.tar
 	@rm ${TARBALL}

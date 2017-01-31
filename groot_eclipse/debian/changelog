@@ -1,0 +1,5 @@
+groot-eclipse-neon-amd64 (0.1.0-1) xenial; urgency=low
+
+  * First iteration off a neon-cdt installation.
+
+ -- Daniel Stonier <d.stonier@gmail.com>  Mon, 31 Jan 2017 11:37:32 +0900

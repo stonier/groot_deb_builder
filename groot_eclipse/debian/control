@@ -1,0 +1,14 @@
+Source: groot-eclipse-neon-amd64
+Priority: optional
+Section: devel
+Maintainer: Daniel Stonier <d.stonier@gmail.com>
+Build-Depends: debhelper (>=9), cmake
+Standards-Version: 3.9.7
+Vcs-Git: https://github.com/stonier/groot_deb_builder.git
+Vcs-Browser: https://github.com/stonier/groot_deb_builder.git
+
+Package: groot-eclipse-neon-amd64
+Architecture: all
+Depends: ${misc:Depends}
+Description: Customised implementation of an eclipse instance
+ Has various plugins useful for c++/python/ros development.
