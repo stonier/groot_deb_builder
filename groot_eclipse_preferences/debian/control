@@ -4,8 +4,8 @@ Section: devel
 Maintainer: Daniel Stonier <d.stonier@gmail.com>
 Build-Depends: debhelper (>=9), cmake
 Standards-Version: 3.9.7
-Vcs-Git: https://github.com/stonier/groot-eclipse-preferences.git
-Vcs-Browser: https://github.com/stonier/groot-eclipse-preferences.git
+Vcs-Git: https://github.com/stonier/groot_eclipse_preferences.git
+Vcs-Browser: https://github.com/stonier/groot_eclipse_preferences.git
 
 Package: groot-eclipse-preferences
 Architecture: all

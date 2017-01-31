@@ -1,0 +1,11 @@
+groot-eclipse-preferences (0.1.0-2) xenial; urgency=low
+
+  * Redirect to groot_eclipse_preference source repository
+
+ -- Daniel Stonier <d.stonier@gmail.com>  Mon, 30 Jan 2017 11:37:32 +0900
+
+groot-eclipse-preferences (0.1.0-1) xenial; urgency=low
+
+  * Neon preference
+
+ -- Daniel Stonier <d.stonier@gmail.com>  Mon, 30 Jan 2017 11:37:32 +0900
