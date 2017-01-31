@@ -1,11 +1,11 @@
-groot-eclipse-preferences (0.1.0-2) xenial; urgency=low
+groot-eclipse-preferences (0.1.1-1) xenial; urgency=low
 
-  * Redirect to groot_eclipse_preference source repository
+  * Neon cpp code style ros, templates and dictionary added
 
  -- Daniel Stonier <d.stonier@gmail.com>  Mon, 30 Jan 2017 11:37:32 +0900
 
 groot-eclipse-preferences (0.1.0-1) xenial; urgency=low
 
-  * Neon preference
+  * Neon global preferences added
 
  -- Daniel Stonier <d.stonier@gmail.com>  Mon, 30 Jan 2017 11:37:32 +0900
