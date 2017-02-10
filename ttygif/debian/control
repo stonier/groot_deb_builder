@@ -8,7 +8,7 @@ Vcs-Git: https://github.com/icholy/ttygif
 Vcs-Browser: https://github.com/icholy/ttygif
 
 Package: ttygif
-Architecture: all
+Architecture: any
 Depends: ${misc:Depends}
 Description: Converts a ttyrec file into gif files
  ttygif converts a ttyrec file into gif files. It's a stripped down version of ttyplay
