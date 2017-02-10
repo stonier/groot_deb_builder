@@ -1,3 +1,9 @@
+ttygif (1.4.0-2) xenial; urgency=low
+
+  * Fix install rule
+
+ -- Daniel Stonier <d.stonier@gmail.com>  Fri, 10 Feb 2017 18:38:18 +0900
+
 ttygif (1.4.0-1) xenial; urgency=low
 
   * First packaged upstream release
