@@ -1,0 +1,11 @@
+#!/usr/bin/make -f
+
+# If doing multiple directories:
+#   dh  $@ --sourcedirectory=src1
+#   dh  $@ --sourcedirectory=src2
+#
+# Explicitly calling on cmake
+#   dh  $@ --buildsystem=cmake
+
+%:
+	dh $@

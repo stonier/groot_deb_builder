@@ -1,0 +1,6 @@
+ttygif (1.4.0-1) xenial; urgency=low
+
+  * First packaged upstream release
+
+ -- Daniel Stonier <d.stonier@gmail.com>  Fri, 10 Feb 2017 12:38:18 +0900
+

@@ -1,0 +1,15 @@
+Source: ttygif
+Priority: optional
+Section: misc
+Maintainer: Daniel Stonier <d.stonier@gmail.com>
+Build-Depends: debhelper (>=9), cmake
+Standards-Version: 3.9.7
+Vcs-Git: https://github.com/icholy/ttygif
+Vcs-Browser: https://github.com/icholy/ttygif
+
+Package: ttygif
+Architecture: all
+Depends: ${misc:Depends}
+Description: Converts a ttyrec file into gif files
+ ttygif converts a ttyrec file into gif files. It's a stripped down version of ttyplay
+ that screenshots every frame.
