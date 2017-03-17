@@ -6,6 +6,7 @@
 #   NAME : name of the pypi package
 #   DISTRO (optional) : name of the distro to release into
 #   SKIP_TESTS (optional) : set to 1 if you want to skip tests
+#   TARBALL_NAME (optional) : if you have an esoteric tarball name that doesn't match the pypi package name
 #
 ##############################################################################
 #
@@ -18,6 +19,7 @@
 DASHED_NAME=$(subst _,-,$(NAME))
 SKIP_TESTS?=0
 DISTRO?=xenial
+TARBALL_NAME?=${NAME}*.tar.gz
 
 help:
 	@echo ""
@@ -48,7 +50,8 @@ clean:
 	rm -rf deb_dist
 
 pristine: clean
-	rm ${NAME}*.tar.gz
+	# hit both, just in case it was one or the other
+	rm ${TARBALL_NAME}
 
 build: clean
 	@echo ""
@@ -56,10 +59,10 @@ build: clean
 	@echo "                    Source Package"
 	@echo "******************************************************"
 	@echo ""
-	py2dsc --extra-cfg-file stdeb.cfg --suite ${DISTRO} --maintainer "Daniel Stonier <d.stonier@gmail.com>" ${NAME}*.tar.gz
+	py2dsc --extra-cfg-file stdeb.cfg --suite ${DISTRO} --maintainer "Daniel Stonier <d.stonier@gmail.com>" ${TARBALL_NAME}
 	@if [ "$(SKIP_TESTS)" = "1" ]; then \
             echo "groot: skipping tests"; \
-	    cd deb_dist/${DASHED-NAME}*; echo "override_dh_auto_test:\n\t\n" >> debian/rules; \
+	    cd deb_dist/${DASHED_NAME}*; echo "override_dh_auto_test:\n\t\n" >> debian/rules; \
 	fi;
 	@echo ""
 	@echo "******************************************************"
@@ -75,7 +78,7 @@ deb: clean
 	@echo "                      Deb"
 	@echo "******************************************************"
 	@echo ""
-	py2dsc-deb --extra-cfg-file stdeb.cfg --suite ${DISTRO} ${NAME}*.tar.gz
+	py2dsc-deb --extra-cfg-file stdeb.cfg --suite ${DISTRO} ${TARBALL_NAME}
 
 upload:
 	cd deb_dist; dput ppa:d-stonier/snorriheim ${DASHED_NAME}_*_source.changes
