@@ -1,3 +1,9 @@
+groot-eclipse-preferences (0.2.0-1) xenial; urgency=low
+
+  * Oxygen cpp code style ros, templates and dictionary added
+
+ -- Daniel Stonier <d.stonier@gmail.com>  Sun, 18 Mar 2018 18:50:31 -0400
+
 groot-eclipse-preferences (0.1.1-1) xenial; urgency=low
 
   * Neon cpp code style ros, templates and dictionary added
