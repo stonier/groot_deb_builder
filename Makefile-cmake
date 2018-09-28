@@ -73,4 +73,4 @@ release: build sign upload
 
 # this vendor=override is broken...just clears the 'ubuntu1' default
 changelog:
-	dch -i -m "Daniel Stonier  <d.stonier@gmail.com>" --distribution=xenial --urgency=low --increment --vendor=override
+	dch -i -m "Daniel Stonier  <d.stonier@gmail.com>" --distribution=bionic --urgency=low --increment --vendor=override
