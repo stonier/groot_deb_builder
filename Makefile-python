@@ -44,7 +44,7 @@ download: pre-download
 	@echo "                      Download"
 	@echo "******************************************************"
 	@echo ""
-	pip download --no-deps --no-cache-dir ${NAME}
+	pip download --no-deps --no-binary=:all: --no-cache-dir ${NAME}
 
 clean:
 	rm -rf deb_dist
