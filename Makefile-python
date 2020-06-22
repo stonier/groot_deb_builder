@@ -18,7 +18,7 @@
 
 DASHED_NAME=$(subst _,-,$(NAME))
 SKIP_TESTS?=0
-DISTRO?=bionic
+DISTRO?=focal
 TARBALL_NAME?=${NAME}*.tar.gz
 
 help:
