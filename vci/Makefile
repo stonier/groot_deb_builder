@@ -1,6 +1,6 @@
 
 NAME=$(shell basename ${CURDIR})
 SKIP_TESTS=1
-DISTRO=bionic
+DISTRO=focal
 
 include ../Makefile-python3
