@@ -46,12 +46,14 @@ download: pre-download
 	@echo "                      Download"
 	@echo "******************************************************"
 	@echo ""
-	pip3 download --no-binary :all: --no-deps --no-cache-dir ${NAME}
+	pip3 -vvv download --no-binary :all: --no-deps --no-cache-dir ${NAME}
 
 clean:
 	rm -rf deb_dist
 
-pristine: clean
+pre-pristine:
+
+pristine: clean pre-pristine
 	# hit both, just in case it was one or the other
 	rm -f ${TARBALL_NAME}
 

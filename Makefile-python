@@ -49,7 +49,9 @@ download: pre-download
 clean:
 	rm -rf deb_dist
 
-pristine: clean
+pre-pristine:
+
+pristine: clean pre-pristine
 	# hit both, just in case it was one or the other
 	rm -f ${TARBALL_NAME}
 
