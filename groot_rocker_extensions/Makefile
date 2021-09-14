@@ -1,6 +1,7 @@
 
 NAME=$(shell basename ${CURDIR})
 SKIP_TESTS=1
+DISTRO=focal
 
 pre-download:
 	wget https://raw.githubusercontent.com/stonier/groot_rocker_extensions/devel/stdeb.cfg
